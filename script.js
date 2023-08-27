@@ -1,5 +1,8 @@
-const craftGrid = document.getElementById("craft-grid"); 
+const craftGrid = document.getElementById("grid-popup"); 
 const gridElement = document.getElementById("grid");
+
+
+
 
 function createGrid(rows, cols){
     const gridElement = document.getElementById("grid");
@@ -13,7 +16,7 @@ function createGrid(rows, cols){
         cells.classList.add("cells");
         gridElement.appendChild(cells);
 
-        cells.addEventListener("mouseenter", ()=>{
+        cells.addEventListener("mousedown", ()=>{
             cells.style.backgroundColor = "red";
         })
 

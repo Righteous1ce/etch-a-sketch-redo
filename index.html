@@ -10,14 +10,36 @@
 </head>
 <body>
 
-    <div class="container">
-        <button id="craft-grid">Create Grid</button>
-
-
-        <div id="grid" value="mouseover-me">
+    <div class="container">  
+        <button class="grid-popup" id="grid-popup">Create Grid</button>
+        <div class="modal">
+            <div class="upper-modal">
+                <H1>Create Your Grid</H1>
+            </div>
             
-        </div>
+            <p>Width:</p>
+            <input type="text" id="width-input" placeholder="16" min="1" max = "100" required>
+            <p>Height:</p>
+            <input type="text" id="height-input" placeholder="16" min="1" max = "100" required>
+            <div class="lower-modal">
+                <button id="create-grid">Create Grid</button>
+                <button id="cancel-btn">Cancel</button>
+            </div>
+            
+
+
+            
+            
+        </div>  
+        <div id="backdrop" class="active"></div> 
+
+
+        <div id="grid" value="mouseover-me"></div>
+
     </div>
+    
+
+
     
 </body>
 </html>

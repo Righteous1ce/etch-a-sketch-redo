@@ -1,8 +1,13 @@
-
+*::after, *::before{
+    box-sizing: border-box;
+}
 .container{
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
+    
+    
 }
 
 #grid{
@@ -14,6 +19,90 @@
 
 }
 
-.cells:mousedown{
-    background-color: blueviolet;
+#backdrop{
+    opacity: 0;
+    position: fixed;
+    background-color: rgba(0, 0, 0, .5);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none; 
+}
+
+#backdrop.active{
+    opacity: 1;
+    pointer-events: all;
+    
+}
+
+.modal{ 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: aliceblue;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    border: 1px solid black;
+    width: 500px;
+    max-width: 80%;
+    z-index: 10;
+    padding: 10px;
+    
+}
+
+.modal > p{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.modal > input{
+    padding: 10px;
+    width: 500px;
+    max-width: 80%;
+    border: 1px solid black;
+}
+
+
+.lower-modal{
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+#create-grid{
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
+    padding: 10px;
+    margin-top: 10px;
+    width: 500px;
+    cursor: pointer;
+    background-color: #1ee14d;
+    color: aliceblue;
+}
+
+#cancel-btn{
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px;
+    margin-top: 10px;
+    width: 500px;
+    border: none;
+    background-color: #ff212e;
+    color: aliceblue;
+    cursor: pointer;
+}
+
+
+#cancel-btn:hover{
+    background-color: #9e0009;
+}
+
+#create-grid:hover{
+background-color: #14ac35;
 }
