@@ -4,6 +4,7 @@ const closeModalButton = document.querySelectorAll("[data-close-modal]");
 const createGridButton = document.querySelectorAll("[data-create-grid]");
 const backdrop = document.getElementById("backdrop");
 const gridElement = document.getElementById("grid");
+const changeGrid = document.getElementById("create-grid");
 
 
 
@@ -27,8 +28,6 @@ closeModalButton.forEach(button => {
 
 
 
-////////// OPEN & CLOSE THE MODAL \\\\\\\\\\
-
 function openModal(modal){
     console.log(modal);
     if(modal == null) return;
@@ -45,14 +44,16 @@ function closeModal(modal){
 
 
 
-function createGrid(rows, cols){
+
+
+function createGrid(widthInput, heightInput){
     const gridElement = document.getElementById("grid");
     
 
-    gridElement.style.gridTemplateRows = `repeat(${rows}, 30px)`;
-    gridElement.style.gridTemplateColumns = `repeat(${cols}, 30px)`;
+    gridElement.style.gridTemplateRows = `repeat(${widthInput}, 30px)`;
+    gridElement.style.gridTemplateColumns = `repeat(${heightInput}, 30px)`;
 
-    for (let i = 0; i < rows * cols; i++){
+    for (let i = 0; i < widthInput * heightInput; i++){
         const cells = document.createElement("div");
         cells.classList.add("cells");
         gridElement.appendChild(cells);
@@ -65,8 +66,25 @@ function createGrid(rows, cols){
 }
 
 
+changeGrid.addEventListener("click", () => {
+    updateGrid();
+    closeModal(modal);
+})
+
+
+function updateGrid(){
+    const widthInput = parseInt(document.querySelector('input[name = width]').value);
+    const heightInput = parseInt(document.querySelector('input[name = height').value);
+    if(!widthInput || !heightInput) return;
+    let gridElement = Math.min(widthInput, heightInput);
+    createGrid(widthInput, heightInput);
+
+}
 
 
 
 
-createGrid(16, 16);
+
+
+
+createGrid();
