@@ -10,6 +10,7 @@ const changeGrid = document.getElementById("create-grid");
 
 
 
+
 openModalButton.forEach(button => {
     button.addEventListener("click", () =>{
         const modal = document.querySelector(button.dataset.modalTarget);
@@ -67,6 +68,7 @@ function createGrid(widthInput, heightInput){
 
 
 changeGrid.addEventListener("click", () => {
+    gridElement.innerHTML = "";
     updateGrid();
     closeModal(modal);
 })
@@ -77,6 +79,7 @@ function updateGrid(){
     const heightInput = parseInt(document.querySelector('input[name = height').value);
     if(!widthInput || !heightInput) return;
     let gridElement = Math.min(widthInput, heightInput);
+
     createGrid(widthInput, heightInput);
 
 }
