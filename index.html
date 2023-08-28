@@ -11,8 +11,8 @@
 <body>
 
     <div class="container">  
-        <button class="grid-popup" id="grid-popup">Create Grid</button>
-        <div class="modal">
+        <button id="grid-popup" data-modal-target="#modal">Create Grid</button>
+        <div class="modal " id="modal">
             <div class="upper-modal">
                 <H1>Create Your Grid</H1>
             </div>
@@ -22,8 +22,8 @@
             <p>Height:</p>
             <input type="text" id="height-input" placeholder="16" min="1" max = "100" required>
             <div class="lower-modal">
-                <button id="create-grid">Create Grid</button>
-                <button id="cancel-btn">Cancel</button>
+                <button data-create-grid id="create-grid">Create Grid</button>
+                <button data-close-modal id="cancel-btn">Cancel</button>
             </div>
             
 
@@ -31,7 +31,7 @@
             
             
         </div>  
-        <div id="backdrop" class="active"></div> 
+        <div id="backdrop" ></div> 
 
 
         <div id="grid" value="mouseover-me"></div>
