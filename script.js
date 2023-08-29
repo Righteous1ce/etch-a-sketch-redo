@@ -5,10 +5,8 @@ const createGridButton = document.querySelectorAll("[data-create-grid]");
 const backdrop = document.getElementById("backdrop");
 const gridElement = document.getElementById("grid");
 const changeGrid = document.getElementById("create-grid");
-
-
-//let cellSize = Math.floor(600 / gridElement);
-
+const randomColor = document.getElementById("random-colour");
+const toggleGridLines = document.getElementById("toggle-grid-lines");
 
 
 
@@ -55,16 +53,24 @@ function createGrid(widthInput, heightInput){
 
     gridElement.style.gridTemplateColumns = `repeat(${widthInput}, ${cellSize}px)`;
     gridElement.style.gridTemplateRows = `repeat(${heightInput}, ${cellSize}px`;
+    
 
     for (let i = 0; i < widthInput * heightInput; i++){
         const cells = document.createElement("div");
         cells.classList.add("cells");
-        //cells.style.width = `${cellSize}px`;
-        //cells.style.height = `${cellSize}px`;
+
+        if(toggleGridLines.classList.contains("active")){
+            cells.classList.add("show-grid-lines");
+            console.log("active");
+        } else {
+            cells.classList.remove("show-grid-lines");
+            console.log("not active");
+        }
+
         gridElement.appendChild(cells);
 
-        cells.addEventListener("mousedown", ()=>{
-            cells.style.backgroundColor = "rgba(0, 234, 255, 1)";
+        cells.addEventListener("mouseenter", ()=>{
+            cells.style.backgroundColor = randomColor.classList.contains("active") ? getRandomColor() : "rgba(0, 234, 255, 1)"
         })
 
     }
@@ -74,6 +80,7 @@ function createGrid(widthInput, heightInput){
 changeGrid.addEventListener("click", () => {
     gridElement.innerHTML = "";
     updateGrid();
+    randomColor.classList.remove("active");
     closeModal(modal);
 })
 
@@ -83,6 +90,7 @@ function updateGrid(){
     const heightInput = parseInt(document.querySelector('input[name = height').value);
     if(!widthInput || !heightInput) return;
 
+    
     if(widthInput != heightInput){
         alert("Grid must have equal width and height");
         return;
@@ -98,6 +106,30 @@ function updateGrid(){
     createGrid(widthInput, heightInput);
 
 }
+
+
+function getRandomColor(){
+    const r = Math.floor(Math.random() * 256);
+    const g = Math.floor(Math.random() * 256);
+    const b = Math.floor(Math.random() * 256);
+
+    return `rgba(${r}, ${g}, ${b})`;
+}
+
+
+randomColor.addEventListener("click", () =>{
+        randomColor.classList.add("active");
+     })
+
+
+
+toggleGridLines.addEventListener("click", () => {
+        toggleGridLines.classList.toggle("active");    
+        updateGrid();    
+        console.log("toggle grid lines")
+
+    })
+
 
 
 

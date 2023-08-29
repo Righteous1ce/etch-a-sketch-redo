@@ -17,11 +17,18 @@
 
 #grid{
     display: grid;  
+    border: 1px solid black;
+    box-shadow: 10px 5px 5px 5px gray;
 }
 
-#grid > div{
+#grid .cells .show-grid-lines {
    border: 1px solid black;
+   background-color: red;
 
+}
+
+#grid div{
+    border: 1px solid black;
 }
 
 #backdrop{
@@ -92,10 +99,8 @@
     padding: 10px;
     margin-top: 10px;
     width: 400px;
-    
     cursor: pointer;
     background-color: rgba(0, 234, 255, 1);
-    
     font-family: 'Rubik Iso';
 }
 
@@ -107,7 +112,6 @@
     width: 400px;
     border: none;
     background-color: rgba(255, 106, 106, 1);
-    
     cursor: pointer;
     font-family: 'Rubik Iso';
 }
@@ -121,15 +125,41 @@
 background-color: rgba(0, 234, 255, 0.5);
 }
 
-#grid-popup{
+#grid-popup, #toggle-grid-lines{
     margin-bottom: 10px;
+    margin-right: 10px;
     border: none;
     background-color: white;
     font-size: 20px;
-    background-color: rgba(0, 234, 255, 1);
+    background-color:  rgba(0, 234, 255, 1);
 }
 
-#grid-popup:hover{
+#random-colour:hover{
+    background-position: right center;
+
+}
+
+#random-colour{
+    margin-bottom: 10px;
+    margin-right: 10px;
+    border: none;
+    background-color: white;
+    font-size: 20px;
+    background-image: linear-gradient(to right, red 0%, blue 51%, green 100%);
+    color: aliceblue;
+
+}
+
+
+
+#grid-popup:hover, #toggle-grid-lines:hover{
     background-color: rgba(0, 234, 255, 0.5);
+    
+}
+
+
+
+.btn-layout{
+    display: flex;
 }
 
