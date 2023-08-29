@@ -1,11 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather&family=Rubik+Iso&display=swap');
+
 *::after, *::before{
     box-sizing: border-box;
+    
 }
 .container{
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
     position: relative;
+    font-family: 'Rubik Iso';
     
     
 }
@@ -48,7 +53,7 @@
     transform: translate(-50%, -50%) scale(0);
     transition: 200ms ease-in-out;
     border: 1px solid black;
-    width: 500px;
+    width: 400px;
     max-width: 80%;
     z-index: 10;
     padding: 10px;
@@ -86,10 +91,12 @@
     border: none;
     padding: 10px;
     margin-top: 10px;
-    width: 500px;
+    width: 400px;
+    
     cursor: pointer;
-    background-color: #1ee14d;
-    color: aliceblue;
+    background-color: rgba(0, 234, 255, 1);
+    
+    font-family: 'Rubik Iso';
 }
 
 #cancel-btn{
@@ -97,18 +104,32 @@
     font-weight: bold;
     padding: 10px;
     margin-top: 10px;
-    width: 500px;
+    width: 400px;
     border: none;
-    background-color: #ff212e;
-    color: aliceblue;
+    background-color: rgba(255, 106, 106, 1);
+    
     cursor: pointer;
+    font-family: 'Rubik Iso';
 }
 
 
 #cancel-btn:hover{
-    background-color: #9e0009;
+    background-color: rgba(255, 106, 106, 0.5);;
 }
 
 #create-grid:hover{
-background-color: #14ac35;
+background-color: rgba(0, 234, 255, 0.5);
 }
+
+#grid-popup{
+    margin-bottom: 10px;
+    border: none;
+    background-color: white;
+    font-size: 20px;
+    background-color: rgba(0, 234, 255, 1);
+}
+
+#grid-popup:hover{
+    background-color: rgba(0, 234, 255, 0.5);
+}
+
