@@ -47,10 +47,14 @@ function closeModal(modal){
 
 
 function createGrid(widthInput, heightInput){
-    const gridElement = document.getElementById("grid");
+    const cellSize = 600 / Math.max(widthInput, heightInput);
 
-    gridElement.style.gridTemplateColumns = `repeat(${widthInput}, 30px)`;
-    gridElement.style.gridTemplateRows = `repeat(${heightInput}, 30px`;
+    gridElement.style.width = "600px";
+    gridElement.style.height = "600px";
+    
+
+    gridElement.style.gridTemplateColumns = `repeat(${widthInput}, ${cellSize}px)`;
+    gridElement.style.gridTemplateRows = `repeat(${heightInput}, ${cellSize}px`;
 
     for (let i = 0; i < widthInput * heightInput; i++){
         const cells = document.createElement("div");
