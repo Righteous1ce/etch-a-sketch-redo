@@ -21,15 +21,11 @@
     box-shadow: 10px 5px 5px 5px gray;
 }
 
-#grid .cells .show-grid-lines {
+#grid > .show-grid-lines {
    border: 1px solid black;
-   background-color: red;
-
+   
 }
 
-#grid div{
-    border: 1px solid black;
-}
 
 #backdrop{
     opacity: 0;

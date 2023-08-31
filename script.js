@@ -59,13 +59,7 @@ function createGrid(widthInput, heightInput){
         const cells = document.createElement("div");
         cells.classList.add("cells");
 
-        if(toggleGridLines.classList.contains("active")){
-            cells.classList.add("show-grid-lines");
-            console.log("active");
-        } else {
-            cells.classList.remove("show-grid-lines");
-            console.log("not active");
-        }
+        
 
         gridElement.appendChild(cells);
 
@@ -96,8 +90,6 @@ function updateGrid(){
         return;
     }
 
-    let gridElement = Math.min(widthInput, heightInput);
-
     if(widthInput > 100 || heightInput > 100){
         alert("The Grid Cannot Be Bigger Than 100 x 100");
         return;
@@ -124,11 +116,21 @@ randomColor.addEventListener("click", () =>{
 
 
 toggleGridLines.addEventListener("click", () => {
-        toggleGridLines.classList.toggle("active");    
-        updateGrid();    
+        toggleGridLines.classList.toggle("active"); 
+        const cells = document.querySelectorAll(".cells");
+
+        cells.forEach(cell =>{
+            if(toggleGridLines.classList.contains("active")){
+                cell.classList.add("show-grid-lines");
+            }else {
+                cell.classList.remove("show-grid-lines");
+            }
+        })
+        
         console.log("toggle grid lines")
 
     })
+
 
 
 
