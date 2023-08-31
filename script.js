@@ -7,6 +7,8 @@ const gridElement = document.getElementById("grid");
 const changeGrid = document.getElementById("create-grid");
 const randomColor = document.getElementById("random-colour");
 const toggleGridLines = document.getElementById("toggle-grid-lines");
+const eraseButton = document.getElementById("erase");
+const clearButton = document.getElementById("clear");
 
 
 
@@ -58,13 +60,11 @@ function createGrid(widthInput, heightInput){
     for (let i = 0; i < widthInput * heightInput; i++){
         const cells = document.createElement("div");
         cells.classList.add("cells");
-
-        
-
         gridElement.appendChild(cells);
-
         cells.addEventListener("mouseenter", ()=>{
-            cells.style.backgroundColor = randomColor.classList.contains("active") ? getRandomColor() : "rgba(0, 234, 255, 1)"
+            cells.style.backgroundColor = eraseButton.classList.contains("active") ? 
+            cells.style.backgroundColor = "white" : randomColor.classList.contains("active") ? 
+            getRandomColor() : "rgba(0, 234, 255, 1)"
         })
 
     }
@@ -110,7 +110,7 @@ function getRandomColor(){
 
 
 randomColor.addEventListener("click", () =>{
-        randomColor.classList.add("active");
+        randomColor.classList.toggle("active");
      })
 
 
@@ -131,6 +131,29 @@ toggleGridLines.addEventListener("click", () => {
 
     })
 
+
+eraseButton.addEventListener("click", () => {
+    eraseButton.classList.toggle("active");
+    console.log("active");
+})
+
+
+clearButton.addEventListener("click", () => {
+    const cells = document.querySelectorAll(".cells");
+    clearButton.classList.add("active");
+    
+    cells.forEach(cell => {
+            
+    if(clearButton.classList.contains("active")){
+        cell.style.backgroundColor = "white";
+    }
+
+
+
+    })
+
+    
+})
 
 
 

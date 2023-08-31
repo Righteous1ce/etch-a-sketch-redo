@@ -117,11 +117,11 @@
     background-color: rgba(255, 106, 106, 0.5);;
 }
 
-#create-grid:hover{
+#create-grid:hover, #erase:hover, #clear:hover{
 background-color: rgba(0, 234, 255, 0.5);
 }
 
-#grid-popup, #toggle-grid-lines{
+#grid-popup, #toggle-grid-lines, #erase, #clear{
     margin-bottom: 10px;
     margin-right: 10px;
     border: none;
@@ -157,5 +157,9 @@ background-color: rgba(0, 234, 255, 0.5);
 
 .btn-layout{
     display: flex;
+}
+
+#erase > .erase-color{
+    background-color: white;
 }
 
